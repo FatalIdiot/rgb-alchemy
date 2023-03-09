@@ -1,0 +1,195 @@
+$sources-offset: 5px;
+$sources-horizontal-offset: 2px;
+
+body {
+    margin: 0;
+    overflow: hidden;
+    width: 100vw;
+}
+
+.app-container {
+    text-align: center;
+    position: relative;
+    max-width: 992px;
+    height: 100vh;
+    margin: auto;
+    
+    .text-logo {
+        margin: 0;
+        opacity: .6;
+        font-family: fantasy;
+        position: absolute;
+        top: 0;
+        left: 10px;
+    }
+
+    .game-desc-text {
+        opacity: .6;
+        font-family: fantasy;
+    }
+
+    .game-container {
+        padding-top: 50px;
+
+        .output-data-container {
+            $output-container-offset: 20px;
+            padding-top: $output-container-offset;
+            padding-bottom: $output-container-offset;
+            font-weight: bold;
+
+            .colors-data {
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                div {
+                    display: flex;
+                    align-items: center;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    .color-display-tile {
+                        display: inline-block;
+                        width: var(--tile-size);
+                        height: var(--tile-size);
+                    }
+                }
+            }
+        }
+    }
+
+    .field-container {
+        display: inline-block;
+
+        .tiles-container {
+            display: inline-flex;
+            justify-content: space-between;
+
+            .tiles-grid {
+                display: grid;
+        
+                .tile-item {
+                    aspect-ratio: 1;
+                    &.dragged {
+                        opacity: .5;
+                    }
+                }
+            }
+        }
+    }
+
+    .sources-container {
+        .source-item {
+            width: var(--tile-size);
+            height: var(--tile-size);
+            position: relative;
+            display: inline-block;
+            border-radius: 50%;
+
+            &.dragged-over {
+                box-shadow: 0 0 20px black;
+            }
+
+            .source-color-selector {
+                z-index: 1;
+                cursor: initial;
+                position: relative;
+                width: calc(var(--tile-size) * 3);
+                height: calc(var(--tile-size) * 2);
+                top: 0;
+                left: calc(var(--tile-size) * -1);
+
+                .selector-item  {
+                    position: relative;
+                    cursor: pointer;
+                    z-index: 2;
+                    width: var(--tile-size);
+                    height: var(--tile-size);
+                    border-radius: 50%;
+                    box-shadow: 0 0 20px black;
+                    &:hover {
+                        box-shadow: 0 0 20px white;
+                    }
+                    &.red {
+                        background-color: red;
+                    }
+                    &.green {
+                        background-color: green;
+                        bottom: 0;
+                        left: var(--tile-size);
+                    }
+                    &.blue {
+                        background-color: blue;
+                        left: calc(var(--tile-size) * 2);
+                        bottom: calc(var(--tile-size) * 2);
+                    }
+                }
+            }
+        }
+
+        &.vertical {
+            display: flex;
+            flex-direction: column;
+            margin-left: $sources-offset;
+            margin-right: $sources-offset;
+
+            .source-item {
+                margin-top: calc(var(--grid-gap) / 2);
+                margin-bottom: calc(var(--grid-gap) / 2);
+            }
+        }
+        &.horizontal {
+            margin-left: calc(var(--tile-size) + var(--grid-gap) + $sources-offset);
+            margin-right: calc(var(--tile-size) + var(--grid-gap) + $sources-offset);
+            .source-item:last-child {
+                margin-right: 0 !important;
+            }
+            &.top {
+                margin-bottom: $sources-horizontal-offset;
+            }
+            &.bottom {
+                margin-top: $sources-horizontal-offset;
+            }
+        }
+    }
+}
+
+.game-over-popup {
+    z-index: 3;
+    position: absolute;
+    transition: 2s;
+    width: 200px;
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+
+    background-color: white;
+    box-shadow: 0 0 10px black;
+    border-radius: 5px;
+    padding: 10px;
+
+    .game-over-title {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: darkred;
+        &.won {
+            color: green;
+        }
+    }
+
+    .restart-button {
+        margin-top: 10px;
+    }
+}
+
+.loading-screen {
+    height: 100%;
+    width:100%;
+    display:table;
+    text-align:center; 
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 0;
+        display:table-cell; 
+        vertical-align:middle
+    }
+}
