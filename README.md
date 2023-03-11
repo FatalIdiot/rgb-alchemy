@@ -28,3 +28,4 @@ The goal is to get a color close enough to the target color.
 - Add Redux to have a Global State, instead of passing props to child components.
 - Add handling for server request errors, so user doesn't have to reload the page if something goes wrong.
 - Add some animations and visuals.
+- Add Setting menu to set up field size and any other things.

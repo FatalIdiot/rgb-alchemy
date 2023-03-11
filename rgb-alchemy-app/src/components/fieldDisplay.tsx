@@ -39,10 +39,11 @@ const FieldDisplay: FC<FieldDisplayProps> = (props) => {
     }
 
     const renderSourcesByIndexes = (startIndex: number, endIndex: number, style: Object = {}) => {
-        return sources.slice(startIndex, endIndex).map((source: RGBColor, index: number) => (
-            <Source color={source} style={style} gameState={gameState}
-                index={startIndex + index} key={startIndex + index} setSourceColor={setSourceColor} />
-        ));
+        return sources.slice(startIndex, endIndex).map((source: RGBColor, index: number) => {
+            const sourceIndex = startIndex + index;
+            return <Source color={source} style={style} gameState={gameState}
+                index={sourceIndex} key={sourceIndex} setSourceColor={setSourceColor} />
+        });
     }
 
     return <div className='field-container'>

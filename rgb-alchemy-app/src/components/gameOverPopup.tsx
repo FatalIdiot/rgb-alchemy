@@ -14,9 +14,7 @@ const GameOverPopup: FC<GameOverPopupProps> = ({ gameState, colorDelta, restartG
             Game Over
         </h1>
         <div>
-            { isGameWon ? 
-                'Color picked correctly' : 'Out of moves, color is incorrect'
-            }
+            { isGameWon ? 'Color picked correctly' : 'Out of moves, color is incorrect' }
         </div>
         <button className='restart-button' onClick={() => restartGame()}>
             Restart Game
