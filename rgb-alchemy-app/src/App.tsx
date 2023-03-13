@@ -13,10 +13,7 @@ function App() {
   }, []);
 
   const requestData = (relativeUrl: string) => {
-    const serverIp = process.env.REACT_APP_SERVER_IP;
-    const serverPort = process.env.REACT_APP_SERVER_PORT;
-
-    fetch(`${serverIp}:${serverPort}${relativeUrl}`)
+    fetch(`${process.env.REACT_APP_SERVER_URL}${relativeUrl}`)
       .then((response) => {
         return response.json();
       })
