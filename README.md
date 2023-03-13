@@ -1,3 +1,5 @@
+**Play it [HERE](http://16.170.232.60/)**
+
 ## RGB Alchemy Game
 A React game where you have to mix together a correct color.
 
