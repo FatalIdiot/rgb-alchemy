@@ -1,4 +1,4 @@
-**Play it [HERE](http://16.170.232.60/)**
+**Play it [HERE](http://16.170.232.60/rgb-alchemy/)**
 
 ## RGB Alchemy Game
 A React game where you have to mix together a correct color.
